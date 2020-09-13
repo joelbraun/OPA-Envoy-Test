@@ -51,6 +51,7 @@ static_resources:
                     socket_address:
                       address: 127.0.0.1
                       port_value: 8080
+                      
 admin:
   access_log_path: "/dev/null"
   address:

@@ -31,9 +31,9 @@ spec:
             runAsUser: 0
       containers:
         - name: app
-          image: openpolicyagent/demo-test-server:v1
+          image: joelbraun/sampleapi:latest
           ports:
-            - containerPort: 8080
+            - containerPort: 8080 
         - name: envoy
           image: envoyproxy/envoy:v1.10.0
           securityContext:
@@ -65,7 +65,7 @@ spec:
           - "--set=plugins.envoy_ext_authz_grpc.query=data.envoy.authz.allow"
           - "--set=decision_logs.console=true"
           - "--ignore=.*"
-          - "/policy/mbpolicy.rego"
+          - "/policy/newpolicy.rego"
           livenessProbe:
             httpGet:
               path: /health?plugins

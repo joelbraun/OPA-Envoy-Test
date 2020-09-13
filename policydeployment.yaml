@@ -1,0 +1,21 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: example-policy-app
+  labels:
+    app: example-policy-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example-policy-app
+  template:
+    metadata:
+      labels:
+        app: example-policy-app
+    spec:
+      containers:
+        - name: policyapp
+          image: joelbraun/policydataapi:latest
+          ports:
+            - containerPort: 8081
